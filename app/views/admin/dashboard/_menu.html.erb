@@ -1,0 +1,52 @@
+<div id="sidebar-collapse" class="sidebar">
+  <div class="profile-sidebar">
+    <div class="profile-usertitle">
+      <div>
+        <% if current_user %>
+          <div class="profile-userpic">
+            <%= link_to image_tag(current_user.image_url) %>
+          </div>
+         <div class="profile-usertitle-name">
+           <%= current_user.name %>
+         </div>
+          <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+          <% else %>
+          <li class="active navbar-right"><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="divider"></div>
+  <form role="search">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+  </form>
+  <ul class="nav menu">
+    <li class="active"></li>
+    <li><%= link_to 'Dasborads', admin_index_path, class: "fa fa-bar-calendar"%></li>
+    <li><%= link_to 'Charts', admin_charts_path, class: "fa fa-bar-calendar"%></li>
+    <li><%= link_to 'UI Elements', admin_elements_path, class: "fa fa-bar-calendar"%></li>
+    <li><%= link_to 'Widgets', admin_widgets_path, class: "fa fa-bar-calendar"%></li>
+    <li><%= link_to 'Alerts & Panels', admin_panels_path, class: "fa fa-bar-calendar"%></li>
+    <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+      <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+      </a>
+      <ul class="children collapse" id="sub-item-1">
+        <li class="active">
+          <%= link_to 'Product', products_path, class: "fa fa-arrow-right" %>
+        </li>
+        <li>
+          <%= link_to 'Category', categories_path, class: "fa fa-arrow-right" %>
+        </li>
+        <li>
+          <%= link_to 'User', users_path, class: "fa fa-arrow-right" %>
+        </li>
+      </ul>
+    </li>
+    <li>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "fa fa-power-off" %>
+    </li>
+  </ul>
+</div><!--/.sidebar-->

@@ -1,0 +1,63 @@
+<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
+<div>
+    <ol class="breadcrumb">
+        <li><%= link_to 'Home', home_index_path %></li>
+        <li><%= link_to 'Details', product_detail_path%></li>
+        <li class="active"><%= @product.name %></li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h3><%= @product.name %></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+      <h3><%= image_tag @product.image_url, class: "main-image img-thumbnail" %></h3>
+      <div class="w3-content" style="max-width:1200px">
+        <div class="w3-row-padding w3-section">
+          <div class="w3-col s4">
+              <%= image_tag @product.image_url, width: 50, heigth: 50, class: "child-image" %>
+          </div>
+          <div class="w3-col s4">
+              <%= image_tag @product.image1_url, width: 50, heigth: 50, class: "child-image" %>
+          </div>
+          <div class="w3-col s4">
+              <%= image_tag @product.image2_url, width: 50, heigth: 50, class: "child-image"%>
+          </div>
+          <div class="w3-col s4">
+              <%= image_tag @product.image3_url, width: 50, heigth: 50, class: "child-image" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+        <h1 class="color">Description</h1>
+        <p><%= @product.description %></p>
+        <h1>Details</h1>
+        <ul>
+            <h3>Price:<%= @product.price %></h3>
+            <h3>Vote<div class="stars">
+              <form action="">
+                <input class="star star-1 glyphicon glyphicon-star-empty" id="star-1" type="radio" name="star"/>
+                <label class="star star-1" for="star-1"></label>
+                <input class="star star-2" id="star-2" type="radio" name="star"/>
+                <label class="star star-2" for="star-2"></label>
+                <input class="star star-3" id="star-3" type="radio" name="star"/>
+                <label class="star star-3" for="star-3"></label>
+                <input class="star star-4" id="star-4" type="radio" name="star"/>
+                <label class="star star-4" for="star-4"></label>
+                <input class="star star-5 " id="star-5" type="radio" name="star"/>
+                <label class="star star-5" for="star-5"></label>
+              </form>
+            </div>
+            </h3>
+            <h3>Trademark:<%= @product.category.name %></h3>
+        </ul>
+        <%= button_to 'Add to Cart', line_items_path(product_id: @product), remote: true, class: "btn btn-success" %>
+    </div>
+
+</div>

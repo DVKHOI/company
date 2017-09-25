@@ -1,0 +1,32 @@
+<div>
+    <ol class="breadcrumb">
+      <li><%= link_to 'Home', home_index_path %></li>
+    </ol>
+</div>
+<div class="col-md-12">
+    <%= search_form_for @q, url: home_index_path do |f| %>
+        <div class="pull-right" style="margin-right: -15px; margin-bottom: 20px;">
+            <%= f.search_field :name_cont, class: "form-control input-search" %>
+            <%= f.submit "Search", class: "btn btn-success" %>
+        </div>
+    <% end %>
+</div>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-4 text-center col-sm-6 col-xs-6 product-item">
+        <div class="thumbnail product-box product-item">
+            <div class="caption">
+            	<%= image_tag product.image_url, width: 240, height: 210 %>
+              <h4 id="a"><%= product.name %></h4>
+              <p>Price : <strong> <%= product.price %> </strong>  </p>
+              <p> <%= truncate(product.description, length: 100) %></p>
+              <%= link_to 'Add to Cart', line_items_path(product_id: product), method: :post, remote: true, class: "btn btn-success" %>
+              <%= link_to 'Detail', product_detail_path(product), class: "btn btn-success" %>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+<div class="pull-right">
+    <%= paginate @products, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+</div>

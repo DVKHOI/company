@@ -1,0 +1,4 @@
+<li class="list-group-item product-name"><%= truncate(line_item.product.name, length: 20) %>
+	<span class="label label-warning pull-right"><%= number_to_currency(line_item.total_price) %></span>>
+	<span class="pull-right"">&times; <%= line_item.quantity %>:</span>
+</li>

@@ -1,0 +1,16 @@
+<div id="cart">
+    <%= render @cart if @cart.present? %> 
+</div>
+
+<div>
+    <%= link_to "Category", home_index_path, class: "list-group-item active" %>
+    <ul class="list-group">
+        <% Category.all.each do |category| %>
+          <%= link_to home_index_path(category_id: category.id) do %>
+            <li class="list-group-item category-choose <%= 'choosen' if category.id == params[:category_id].to_i  %>">
+              <%= category.name%>
+            </li>
+          <% end %>
+        <% end %>
+    </ul>
+</div>

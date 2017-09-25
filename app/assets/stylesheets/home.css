@@ -1,0 +1,44 @@
+.a{
+	height: 40px;
+}
+
+.child-image{
+	cursor: pointer;
+	float: left;
+	margin-top: 1em;
+}
+.main-image{
+	width: 450px;
+	height: 350px;
+}
+.product-name{
+	font-size: small;
+}
+.btn{
+	width: 100px;
+}
+.search: {
+	margin-right: -15px !important;
+}
+.category-choose:hover{
+  background-color: #6fb3ed;
+  color: white;
+}
+.choosen{
+  background-color: #6fb3ed !important;
+  color: white;
+}
+.product-item:hover{
+  opacity: 0.5;
+}
+.product-item{
+  height: 450px;
+  margin-bottom: 1em;
+}
+.input-search{
+  float: left;
+  width: 250px !important;
+}
+.action-cart{
+  color: white !important;
+}

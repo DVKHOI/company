@@ -1,0 +1,21 @@
+<div>
+    <a href="#" class="list-group-item active">Shopping cart	
+    </a>
+    <% unless cart.line_items.empty? %>
+    	<ul class="list-group">
+    		<%= render(@cart.line_items) %>
+		    <li class="list-group-item" colspan="2">Total
+		    	<span class="label label-warning pull-right" ><%= number_to_currency(@cart.total_price) %></span>
+		    </li>
+			<li class="list-group-item">
+				<%= link_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are You Sure?'}, class: "btn btn-success action-cart" %>
+        <%= link_to "Check Out", new_order_path, method: :get, class: "btn btn-primary action-cart" %>
+			</li>
+    	</ul>
+		</table>
+	<% else %>
+		<ul class="list-group">
+			<li class="list-group-item"> No Cart</li>
+		</ul>
+	<% end %>
+</div>

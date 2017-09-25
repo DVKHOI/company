@@ -1,0 +1,53 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    padding: 15px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+thead th {
+    background-color: #006DCC;
+    color: white;
+}
+
+tbody td {
+    background-color: #EEEEEE;
+}
+
+tr td:first-child,
+tr th:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+tr td:last-child,
+tr th:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.product {
+  color: blue;
+  margin-top: 8px;
+  margin-left: 500px;
+  background-image: url("download.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    margin-right: 200px;
+  th, td {
+    padding: 7px;
+    text-align: left;
+  }
+  .name {
+    text-decoration: underline;
+  }
+  image{
+    height: 300px;
+    width: 170px;
+  }
+}

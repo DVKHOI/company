@@ -1,0 +1,58 @@
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <table class="product">
+    <thead>
+        <tr>
+          <th><%= f.label :name %></th>
+          <td><%= f.text_field :name %></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th><%= f.label :image_url %></th>
+          <td><%= f.file_field :image_url %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :image1_url %></th>
+          <td><%= f.file_field :image1_url %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :image2_url %></th>
+          <td><%= f.file_field :image2_url %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :image3_url %></th>
+          <td><%= f.file_field :image3_url %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :price %></th>
+          <td><%= f.text_field :price %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :vote %></th>
+          <td><%= f.text_field :vote %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :description %></th>
+          <td><%= f.text_area :description %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :category_id %></th>
+          <td><%= f.collection_select :category_id, Category.all, :id, :name  %></td>
+        </tr>
+        <tr>
+          <td><%= f.submit %></td>
+        </tr>
+      </tbody>
+<% end %>
